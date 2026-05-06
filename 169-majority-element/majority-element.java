@@ -3,21 +3,20 @@ class Solution {
 
         Arrays.sort(nums);
         int k = nums.length;
-        int fre = 1;
-        int n = nums[0];
-        for(int i=1;i<nums.length;i++){
-            if(nums[i]==nums[i-1]){
-                fre++;
+        int freq = 0;
+        int ans = nums[0];
+        for(int i=1;i<k;i++){
+            if(freq==0){
+                ans=nums[i];
+            }
+            if(ans==nums[i]){
+                freq++;
             }else{
-                fre=1;
-                n=nums[i];
+                freq--;
             }
-            if(fre>k/2){
-                n=nums[i];
-                break;
-            }
+            
         }
-        return n;
+        return ans;
         
     }
 }
